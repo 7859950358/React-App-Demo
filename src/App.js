@@ -1,11 +1,12 @@
 import './logo.svg';
 import './App.css';
 import img1 from './img/1.jpeg';
-
+let name="SIT";
 function App() {
   return (
     <>
       <header>
+        <h1 className="SIT">{name}</h1>
         <nav>
           <ul>
             <li>Home</li>
