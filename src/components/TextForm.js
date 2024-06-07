@@ -25,6 +25,15 @@ export default function TextForm() {
         let newText = "";
         setText(newText)
     }
+    const handleCopy = () => {
+        var newText = document.getElementById('exampleFormControlTextarea1');
+        newText.select();
+        navigator.clipboard.writeText(newText.value);
+    }
+    const handleRemoveSpace = () => {
+        let newText = text.split(/[ ] + /);
+        setText(newText.join(" "));
+    }
     return (
         <div>
             <div class="container my-3">
@@ -35,6 +44,8 @@ export default function TextForm() {
                 <button type='btn' className='btn btn-outline-primary' onClick={handleLoChange}>Click to get Lower Case</button>&nbsp;&nbsp;&nbsp;&nbsp;
                 <button type='btn' className='btn btn-outline-info' onClick={speak}>Speak</button>&nbsp;&nbsp;&nbsp;&nbsp;
                 <button type='btn' className='btn btn-outline-dark' onClick={handleClear}>Clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type='btn' className='btn btn-outline-dark' onClick={handleCopy}>Copy</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type='btn' className='btn btn-outline-dark' onClick={handleRemoveSpace}>Remove Extra Space</button>&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <br /><br /><br />
             <div className='container my-3'>
