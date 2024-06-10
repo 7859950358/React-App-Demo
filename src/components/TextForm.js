@@ -7,7 +7,7 @@ export default function TextForm(props) {
 
     const handleOnChange = (event) => {
         // console.log("On change");
-        setText(event.target.value)
+        setText(event.target.value);
     }
 
     const hanldeupchange = () => {
@@ -24,7 +24,7 @@ export default function TextForm(props) {
     const handleSpeak = () => {
         let newText = new SpeechSynthesisUtterance();
         newText.text = text;
-        window.speechSynthesis.speak(newText)
+        window.speechSynthesis.speak(newText);
     }
 
     const hanldeClear = () => {
