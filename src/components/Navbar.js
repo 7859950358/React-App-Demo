@@ -23,8 +23,8 @@ export default function Navbar(props) {
                             </li>
                         </ul>
                         <form className="d-flex" role="search">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.toggleMode}/>{props.mode}
+                            <div class={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.toggleMode} />{props.btnText}
                             </div>
                         </form>
                     </div>
