@@ -32,6 +32,16 @@ export default function TextForm(props) {
         let newText = ("");
         setText(newText);
     }
+
+    const handleCopy = () => {
+        var newText = document.getElementById('exampleFormControlTextarea1');
+        newText.select();
+        navigator.clipboard.writeText(newText.value);
+    }
+    const handleRemoveSpace = () => {
+        let newText = text.split(/[ ] + /);
+        setText(newText.join(" "));
+    }
     return (
         <div>
             <div className='container my-5'>
@@ -41,7 +51,9 @@ export default function TextForm(props) {
                 <button className='btn btn-outline-info my-3' onClick={hanldeInchange}>convert to Lower case</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button className='btn btn-outline-primary my-3' onClick={handleSpeak}>Speak</button>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button className='btn btn-outline-danger my-3' onClick={hanldeClear}>clear</button>
+                <button className='btn btn-outline-danger my-3' onClick={hanldeClear}>clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type='btn' className='btn btn-outline-dark' onClick={handleCopy}>Copy</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type='btn' className='btn btn-outline-dark' onClick={handleRemoveSpace}>Remove Extra Space</button>&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div className='container my-3'>
                 <h2>Your Text Summary</h2>
