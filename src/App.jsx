@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import './App.css';
-import Navbar from './components/Navbar.js';
-import TextForm from './components/TextForm.js';
-import Alert from './components/Alert.js';
+import Navbar from './components/Navbar';
+import TextForm from './components/TextForm';
+import Alert from './components/Alert';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -42,11 +44,26 @@ function App() {
       showAlert("Light Mode Has Been Enable", "success");
     }
   }
-  return (
-    <>
+  const router=createBrowserRouter([
+    {
+      path:'/Home',
+      element:<>
       <Navbar title="SIT" aboutText="Contact  Us" mode={mode} toggleMode={toggleMode} btnText={btnText} />
       <Alert alert={alert} />
       <TextForm heading="Enter Text To Analyse Below" mode={mode} toggleMode={toggleMode} showAlert={showAlert} />
+      </>
+  },
+  {
+    path: 'PrivacyPolicy',
+    element: <>
+    <Navbar title="SIT" aboutText="Contact  Us" mode={mode} toggleMode={toggleMode} btnText={btnText} />
+    <PrivacyPolicy />
+    </>
+  }
+])
+  return (
+    <>
+      <RouterProvider/>
     </>
   );
 }
